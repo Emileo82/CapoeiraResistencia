@@ -1,190 +1,433 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Legend Gym & Capoeira Resistencia | Richmond, VA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Oswald:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
 
-<title>Iron Legend Gym | Richmond, VA</title>
+        .gradient-text {
+            background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-<meta name="description" content="Iron Legend Gym in Richmond, VA. A 24/7 strength gym and home of Capoeira Resistência. Strength. Beauty. Community.">
-<meta name="keywords" content="Iron Legend Gym, Richmond Gym, Capoeira Richmond, Strength Training">
+        .bg-iron {
+            background-color: #1a1a1a;
+        }
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
+        .hero-overlay {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-
-<style>
-body { font-family: 'Inter', sans-serif; }
-h1,h2,h3,.oswald { font-family: 'Oswald', sans-serif; }
-
-.text-accent { color:#ef4444; }
-.bg-accent { background:#ef4444; }
-.border-accent { border-color:#ef4444; }
-.hover-bg-accent:hover { background:#dc2626; }
-
-.hero-gradient {
-background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.85)),
-url('https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1920');
-background-size: cover;
-background-position: center;
-}
-</style>
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
 
-<body class="bg-black text-zinc-100">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/95 backdrop-blur-md text-white border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="text-2xl font-black italic tracking-tighter">
+                        IRON<span class="text-red-600">LEGEND</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide">
+                    <a href="#home" class="hover:text-red-500 transition">HOME</a>
+                    <a href="#gym" class="hover:text-red-500 transition">THE GYM</a>
+                    <a href="#capoeira" class="hover:text-red-500 transition">CAPOEIRA</a>
+                    <a href="#about" class="hover:text-red-500 transition">OUR STORY</a>
+                    <a href="#schedule" class="hover:text-red-500 transition">SCHEDULE</a>
+                    <a href="#contact" class="bg-red-600 px-5 py-2 rounded-full hover:bg-red-700 transition">JOIN NOW</a>
+                </div>
 
-<!-- NAV -->
-<nav class="fixed w-full z-50 bg-black/95 border-b border-zinc-800 backdrop-blur-md">
-<div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-<span class="text-2xl font-bold oswald italic flex items-center gap-2">
-<i data-lucide="dumbbell" class="text-accent"></i>
-IRON <span class="text-accent">LEGEND</span>
-</span>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-gray-800 p-4 space-y-4">
+            <a href="#home" class="block py-2">HOME</a>
+            <a href="#gym" class="block py-2">THE GYM</a>
+            <a href="#capoeira" class="block py-2">CAPOEIRA</a>
+            <a href="#about" class="block py-2">OUR STORY</a>
+            <a href="#schedule" class="block py-2">SCHEDULE</a>
+            <a href="#contact" class="block py-2 text-red-600">JOIN NOW</a>
+        </div>
+    </nav>
 
-<div class="hidden md:flex space-x-8 uppercase text-sm font-semibold tracking-wider">
-<a href="#home" class="hover:text-accent">Home</a>
-<a href="#gym" class="hover:text-accent">Gym</a>
-<a href="#capoeira" class="hover:text-accent">Capoeira</a>
-<a href="#signup" class="bg-accent px-5 py-2 rounded hover-bg-accent">Sign Up</a>
-</div>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80" 
+                 alt="Gym Background" 
+                 class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
 
-<button id="mobile-menu-button" class="md:hidden text-zinc-400 hover:text-white">
-<i data-lucide="menu"></i>
-</button>
-</div>
+        <div class="relative z-10 text-center px-4 max-w-4xl">
+            <h2 class="text-red-600 font-bold tracking-widest mb-4">RICHMOND'S PREMIER 24/7 TRAINING FACILITY</h2>
+            <h1 class="text-5xl md:text-8xl font-black text-white mb-6 leading-none">
+                IRON LEGEND <br/> 
+                <span class="gradient-text">& CAPOEIRA</span>
+            </h1>
+            <p class="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Unleash your strength with 24/7 keyless access at Iron Legend Gym and master the art of movement with Capoeira Resistencia.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#gym" class="bg-red-600 text-white px-8 py-4 rounded-md font-bold hover:bg-red-700 transition transform hover:scale-105 shadow-lg shadow-red-900/20">EXPLORE THE GYM</a>
+                <a href="#capoeira" class="bg-white text-black px-8 py-4 rounded-md font-bold hover:bg-gray-200 transition transform hover:scale-105 shadow-lg shadow-white/10">CAPOEIRA CLASSES</a>
+            </div>
+        </div>
+    </section>
 
-<div id="mobile-menu" class="hidden md:hidden bg-zinc-950 px-6 py-6 space-y-4 border-b border-zinc-800">
-<a href="#home" class="block">Home</a>
-<a href="#gym" class="block">Gym</a>
-<a href="#capoeira" class="block">Capoeira</a>
-<a href="#signup" class="block text-accent font-bold">Sign Up</a>
-</div>
-</nav>
+    <!-- Features Section -->
+    <section class="py-20 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-12 text-center">
+            <div class="hover-lift">
+                <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fa-solid fa-key text-2xl text-red-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Keyless 24/7 Access</h3>
+                <p class="text-gray-600">Train on your own time. Our secure digital system ensures you can train 24 hours a day, 7 days a week.</p>
+            </div>
+            <div class="hover-lift">
+                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fa-solid fa-earth-americas text-2xl text-green-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Authentic Roots</h3>
+                <p class="text-gray-600">Capoeira Resistencia brings authentic Afro-Brazilian martial arts and music to the Richmond community.</p>
+            </div>
+            <div class="hover-lift">
+                <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fa-solid fa-bolt text-2xl text-blue-600"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Elite Training</h3>
+                <p class="text-gray-600">A dedicated warehouse space led by Contra Mestre Balanço for athletes and martial artists to excel.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<header id="home" class="h-screen flex items-center justify-center hero-gradient text-center px-4">
-<div>
-<h1 class="text-6xl md:text-8xl font-black italic uppercase tracking-tighter">
-Strength & <span class="text-accent">Community</span>
-</h1>
-<p class="text-xl mt-6 text-zinc-300 italic">
-Home of Capoeira Resistência
-</p>
-</div>
-</header>
+    <!-- Gym Section -->
+    <section id="gym" class="py-24 bg-iron text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold italic tracking-tight mb-4">IRON LEGEND <span class="text-red-600">GYM</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto uppercase tracking-widest text-sm">Industrial Warehouse Training • Richmond, VA</p>
+            </div>
 
-<!-- GYM -->
-<section id="gym" class="py-24 text-center">
-<h2 class="text-4xl md:text-5xl font-bold italic uppercase tracking-tighter mb-6">
-Gym <span class="text-accent">Memberships</span>
-</h2>
-<p class="text-zinc-400 max-w-xl mx-auto">
-24/7 access • Inclusive environment • Locally owned
-</p>
-</section>
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- New Member Option -->
+                <div class="bg-white/5 border border-white/10 p-8 rounded-2xl hover:border-red-600/50 transition duration-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-white uppercase italic">General Membership</h3>
+                        <i class="fa-solid fa-user-plus text-red-600 text-xl"></i>
+                    </div>
+                    <p class="text-5xl font-black mb-2 text-white">$45 <span class="text-sm font-normal text-gray-400">/ MONTH</span></p>
+                    <p class="text-gray-400 mb-6">Full 24/7 keyless access for new members and general gym use.</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-2"></i> Unlimited 24/7 Entry</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-2"></i> Competition Racks & Platforms</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-red-500 mr-2"></i> No Long-term Contracts</li>
+                    </ul>
+                    <button onclick="document.getElementById('contact').scrollIntoView()" class="w-full bg-white text-black py-3 rounded-lg font-bold hover:bg-gray-200 transition uppercase tracking-wider">Start Training</button>
+                </div>
 
-<!-- CAPOEIRA -->
-<section id="capoeira" class="py-24 bg-zinc-950">
-<div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+                <!-- Student Add-on Option -->
+                <div class="bg-red-600/10 border-2 border-red-600 p-8 rounded-2xl relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Athlete Add-On</div>
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-2xl font-bold text-red-500 uppercase italic">The Class Pass</h3>
+                        <i class="fa-solid fa-award text-red-600 text-xl"></i>
+                    </div>
+                    <p class="text-5xl font-black mb-2 text-white">$10 <span class="text-sm font-normal text-gray-400">/ MONTH</span></p>
+                    <p class="text-gray-400 mb-6">Discounted 24/7 keyless access for our active training community.</p>
+                    <ul class="space-y-3 mb-8 text-sm">
+                        <li class="flex items-center text-red-200"><i class="fa-solid fa-check mr-2"></i> Exclusive for Capoeira Students</li>
+                        <li class="flex items-center text-red-200"><i class="fa-solid fa-check mr-2"></i> Exclusive for PT Athletes</li>
+                        <li class="flex items-center text-red-200"><i class="fa-solid fa-check mr-2"></i> Full 24/7 Access Included</li>
+                    </ul>
+                    <button onclick="document.getElementById('contact').scrollIntoView()" class="w-full bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition uppercase tracking-wider">Add To Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div>
-<div class="flex items-center gap-4 mb-6">
-<img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" alt="Brazil Flag" class="w-12">
-<h2 class="text-4xl md:text-5xl font-bold italic uppercase tracking-tighter">
-Capoeira <span class="text-accent">Resistência</span>
-</h2>
-</div>
+    <!-- Capoeira Section -->
+    <section id="capoeira" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-16">
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-2 italic tracking-tight text-gray-900">CAPOEIRA <span class="text-green-700">RESISTENCIA</span></h2>
+                    <p class="text-green-600 font-bold mb-6 tracking-widest italic uppercase text-sm">Axé de Richmond</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8 text-center">
+                        <div class="bg-gray-50 border border-gray-100 p-4 rounded-xl">
+                            <p class="text-xs text-gray-500 uppercase font-bold mb-1">Single Class</p>
+                            <p class="text-2xl font-black text-green-700">$15</p>
+                        </div>
+                        <div class="bg-green-700 p-4 rounded-xl text-white shadow-lg shadow-green-900/20">
+                            <p class="text-xs text-green-200 uppercase font-bold mb-1">Monthly</p>
+                            <p class="text-2xl font-black">$100</p>
+                        </div>
+                    </div>
 
-<p class="text-zinc-300 mb-6 leading-relaxed">
-Capoeira is a Brazilian martial art blending movement, music, and culture. Led by Contra Mestre Balanço, our classes welcome all ages and skill levels.
-</p>
+                    <p class="text-gray-600 mb-8 leading-relaxed text-lg">
+                        Under the guidance of <strong>Contra Mestre Balanço</strong>, we offer a unique blend of martial arts, dance, acrobatics, and music. Rooted in Afro-Brazilian history, our community thrives on the energy of the <i>Roda</i>.
+                    </p>
+                    
+                    <button onclick="document.getElementById('contact').scrollIntoView()" class="bg-green-700 text-white px-8 py-3 rounded-md hover:bg-green-800 transition shadow-lg w-full md:w-auto font-bold uppercase tracking-widest">Join The Roda</button>
+                </div>
+                <div class="md:w-1/2 relative group">
+                    <div class="bg-yellow-400 absolute inset-0 rotate-3 rounded-3xl -z-10 group-hover:rotate-1 transition-transform"></div>
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&q=80" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000" alt="Brazil Visual">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8">
+                            <p class="text-white font-bold text-xl italic tracking-wide">The Heart of Resistance</p>
+                            <p class="text-gray-300 text-sm">Traditional Afro-Brazilian Martial Arts in RVA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="rounded-xl overflow-hidden border border-zinc-800 shadow-2xl">
-<img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg"
-alt="Brazil Flag"
-class="w-full h-64 object-cover">
-</div>
-</div>
+    <!-- About Balanço Section -->
+    <section id="about" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-red-600 rounded-2xl rotate-3"></div>
+                        <div class="relative bg-black p-4 rounded-2xl">
+                            <div class="aspect-square bg-gray-800 rounded-xl flex items-center justify-center overflow-hidden">
+                                <i class="fa-solid fa-user-ninja text-6xl text-gray-700"></i>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <h3 class="text-white text-xl font-bold">C. Mestre Balanço</h3>
+                                <p class="text-red-500 text-xs font-bold tracking-widest uppercase">Rank: Contra Mestre</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-bold mb-6 italic">MEET <span class="text-red-600">RODERICK J. DAVIS</span></h2>
+                    <div class="prose prose-lg text-gray-600 space-y-4">
+                        <p>
+                            <strong>Roderick J. Davis (Balanço)</strong> began intensive training under the instruction of Mestre Panão in 2005. Within a year, through hard work and dedication, he brought Mestre Panão to his community to start Capoeira Resistência in Richmond, VA.
+                        </p>
+                        <p>
+                            For more than a decade, Balanço has studied and trained directly with, taught, and traveled all over the US and Brazil with Mestre Panão. In 2015, he graduated as one of Mestre Panão's first American Instructors.
+                        </p>
+                        <p>
+                            After 15 years of unwavering dedication to the art and his Mestre, Balanço was promoted to the rank of <strong>Contra Mestre</strong> in August 2024. He has been teaching the community of Richmond, VA since 2021, bringing a wealth of tradition, agility, and resistance to every class.
+                        </p>
+                    </div>
+                    <div class="mt-8 flex space-y-4 md:space-y-0 md:space-x-6 flex-col md:flex-row items-start md:items-center text-sm font-bold text-gray-900">
+                        <span class="flex items-center"><i class="fa-solid fa-calendar-check text-red-600 mr-2"></i> Training Since 2005</span>
+                        <span class="flex items-center"><i class="fa-solid fa-location-dot text-red-600 mr-2"></i> Teaching RVA Since 2021</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="bg-zinc-900 p-10 rounded-2xl border-l-4 border-accent shadow-xl">
-<h3 class="text-xl font-bold uppercase tracking-widest mb-8 text-center">
-Class Schedule
-</h3>
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-2 italic tracking-tight">TRAINING SCHEDULE</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Gym Schedule Card -->
+                <div class="bg-black/40 border border-gray-800 p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-clock text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-tight">IRON LEGEND GYM</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-4 border-b border-gray-800">
+                            <span class="text-gray-400">Monday - Sunday</span>
+                            <span class="font-bold text-red-500 uppercase text-xs tracking-widest">24/7 Access</span>
+                        </div>
+                    </div>
+                    <p class="mt-8 text-[10px] text-gray-500 italic uppercase tracking-widest leading-relaxed">
+                        Note: Active membership and keyless setup required for entry. Keyless entry included in both General Membership and the Student Class Pass.
+                    </p>
+                </div>
 
-<p class="text-zinc-400 text-sm mb-4"><strong class="text-accent">Tues & Thurs</strong><br>Kids: 6:30–7:30 PM<br>Adults: 7:00–8:30 PM</p>
-<p class="text-zinc-400 text-sm"><strong class="text-accent">Sundays</strong><br>All Ages / Roda: 1:30–3:30 PM</p>
-</div>
+                <!-- Capoeira Schedule Card -->
+                <div class="bg-black/40 border border-gray-800 p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-calendar-days text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold tracking-tight">CAPOEIRA RESISTENCIA</h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="border-b border-gray-800 pb-4">
+                            <p class="text-green-500 font-bold mb-2 uppercase text-xs tracking-widest">Tuesday & Thursday</p>
+                            <div class="flex justify-between text-sm py-1">
+                                <span class="text-gray-300 italic">Kids Class</span>
+                                <span class="text-white font-bold">6:30 PM – 7:30 PM</span>
+                            </div>
+                            <div class="flex justify-between text-sm py-1">
+                                <span class="text-gray-300 italic">Adults Class</span>
+                                <span class="text-white font-bold">7:00 PM – 8:30 PM</span>
+                            </div>
+                        </div>
+                        <div class="border-b border-gray-800 pb-4">
+                            <p class="text-green-500 font-bold mb-2 uppercase text-xs tracking-widest">Sunday</p>
+                            <div class="flex justify-between text-sm py-1">
+                                <span class="text-gray-300 italic">All Ages / Roda</span>
+                                <span class="text-white font-black text-lg">1:30 PM – 3:30 PM</span>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <p class="text-gray-600 text-[10px] uppercase tracking-[0.3em] font-bold italic">Saturday: No Classes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
-</section>
+    <!-- Contact / Location -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-bold mb-8 italic">GET IN THE <span class="text-red-600">GAME</span></h2>
+                <div class="space-y-8 mb-12">
+                    <div class="flex items-start">
+                        <div class="bg-red-50 p-3 rounded-lg mr-4 border border-red-100 shadow-sm">
+                            <i class="fa-solid fa-location-dot text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold uppercase text-[10px] text-gray-400 tracking-widest mb-1">Full Address</p>
+                            <p class="text-gray-700 italic font-bold leading-relaxed">
+                                Iron Legend<br>
+                                3310 Rosedale Ave Unit B1<br>
+                                Richmond, VA 23230
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-50 p-3 rounded-lg mr-4 border border-red-100 shadow-sm">
+                            <i class="fa-solid fa-phone text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold uppercase text-[10px] text-gray-400 tracking-widest mb-1">Phone / Text</p>
+                            <a href="tel:8043015681" class="text-gray-700 font-bold hover:text-red-600 transition">(804) 301-5681</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="bg-red-50 p-3 rounded-lg mr-4 border border-red-100 shadow-sm">
+                            <i class="fa-solid fa-envelope text-red-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold uppercase text-[10px] text-gray-400 tracking-widest mb-1">Direct Email</p>
+                            <a href="mailto:davis.roderick.82@gmail.com" class="text-gray-700 font-bold hover:text-red-600 transition">davis.roderick.82@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full h-64 bg-gray-200 rounded-3xl overflow-hidden relative border border-gray-100 group shadow-inner">
+                    <!-- Static Map Visual -->
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80" alt="Map View" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="bg-white px-6 py-4 rounded-xl shadow-2xl text-black font-bold flex flex-col items-center border-t-4 border-red-600">
+                            <span class="flex items-center text-sm mb-1"><i class="fa-solid fa-location-pin text-red-600 mr-2"></i> IRON LEGEND</span>
+                            <span class="text-[10px] text-gray-500 font-normal uppercase tracking-wider">3310 Rosedale Ave Unit B1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- SIGN UP -->
-<section id="signup" class="py-24 bg-black">
-<div class="max-w-2xl mx-auto px-4">
-<h2 class="text-4xl font-bold italic uppercase tracking-tighter text-accent text-center mb-10">
-Sign Up Online
-</h2>
+            <div class="bg-gray-50 p-8 rounded-3xl border border-gray-200 shadow-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-red-600/5 -mr-16 -mt-16 rounded-full"></div>
+                <h3 class="text-2xl font-bold mb-2 tracking-tight">RESERVE YOUR PASS</h3>
+                <p class="text-gray-500 mb-8 text-sm uppercase tracking-widest font-medium">Application for Membership</p>
+                
+                <!-- Formspree Integration -->
+                <form action="https://formspree.io/f/mjgkzwvl" method="POST" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" name="firstName" required placeholder="First Name" class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition text-sm">
+                        <input type="text" name="lastName" required placeholder="Last Name" class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition text-sm">
+                    </div>
+                    <input type="email" name="email" required placeholder="Email Address" class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition text-sm">
+                    <input type="tel" name="phone" placeholder="Phone Number" class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition text-sm">
+                    
+                    <select name="program" required class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 bg-white transition text-sm font-medium">
+                        <option value="">Choose Membership Option</option>
+                        <option value="General Gym Membership ($45/mo)">General Membership ($45/mo - Gym Use)</option>
+                        <option value="Class Pass Add-on ($10/mo)">The Class Pass ($10/mo - Add-on)</option>
+                        <option value="Capoeira Monthly ($100)">Capoeira Monthly ($100)</option>
+                        <option value="Capoeira Drop-in ($15)">Capoeira Drop-in ($15)</option>
+                    </select>
+                    
+                    <textarea name="message" placeholder="Questions or fitness goals?" rows="4" class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition text-sm"></textarea>
+                    
+                    <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-xl font-bold hover:bg-red-700 transition transform hover:scale-[1.01] shadow-xl shadow-red-900/20 uppercase tracking-[0.2em] text-xs">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-<form action="https://formspree.io/f/xdakjgwy" method="POST" class="space-y-6">
+    <!-- Footer -->
+    <footer class="bg-black text-gray-500 py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-10 flex justify-center space-x-10 text-2xl text-white">
+                <a href="https://www.instagram.com/capoeiraresistenciarva/" target="_blank" class="hover:text-red-500 transition transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-red-500 transition transform hover:scale-110"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+            <p class="mb-2 font-bold text-gray-300 tracking-tight">&copy; 2024 Iron Legend Gym & Capoeira Resistencia.</p>
+            <p class="text-[10px] uppercase tracking-[0.5em] font-black text-gray-700">Powerlifting • Capoeira • Resilience • Richmond</p>
+            <div class="mt-8 pt-8 border-t border-gray-900 inline-block px-12 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+                3310 Rosedale Ave Unit B1, Richmond, VA 23230
+            </div>
+        </div>
+    </footer>
 
-<input type="text" name="name" required placeholder="Full Name"
-class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded focus:outline-none focus:border-accent">
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
 
-<input type="email" name="email" required placeholder="Email Address"
-class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded focus:outline-none focus:border-accent">
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
 
-<textarea name="message" rows="4" placeholder="Tell us what you're interested in"
-class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded focus:outline-none focus:border-accent"></textarea>
-
-<button type="submit"
-class="w-full bg-accent py-4 font-bold uppercase tracking-widest rounded hover-bg-accent transition">
-Submit
-</button>
-</form>
-
-<p class="text-zinc-500 text-sm text-center mt-4">
-We’ll contact you shortly with membership details.
-</p>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer class="py-16 border-t border-zinc-900 text-center">
-<div class="flex justify-center gap-8 mb-8">
-<a href="https://www.instagram.com/capoeiraresistenciarva/" target="_blank" class="hover:text-accent">
-<i data-lucide="instagram"></i>
-</a>
-<a href="mailto:davis.roderick.82@gmail.com" class="hover:text-accent">
-<i data-lucide="mail"></i>
-</a>
-</div>
-
-<p class="text-xs uppercase tracking-widest text-zinc-600">
-© 2026 Iron Legend Gym • Richmond, VA
-</p>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  lucide.createIcons();
-
-  const btn = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-      });
-    });
-  }
-});
-</script>
-
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+    </script>
 </body>
 </html>
